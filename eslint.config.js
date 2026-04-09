@@ -27,5 +27,23 @@ export default [
     // 配置规则
     rules: {
     }
+  },
+  {
+    // Electron 文件使用 Node.js 环境
+    files: ["electron/**/*.{js,ts}"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        require: "readonly",
+        module: "readonly",
+        __dirname: "readonly",
+        __filename: "readonly",
+        process: "readonly"
+      }
+    },
+    rules: {
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-require-imports": "off"
+    }
   }
 ];

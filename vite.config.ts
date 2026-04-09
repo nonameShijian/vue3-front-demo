@@ -9,11 +9,13 @@ import vue from '@vitejs/plugin-vue';
  * },
  * ```
  */
+// @ts-expect-error 对应包的package.json的import不对
 import eslintPlugin from 'vite-plugin-eslint';
 import { fileURLToPath } from 'node:url';
 
 // https://vite.dev/config/
 export default defineConfig({
+	base: './',
 	plugins: [
 		vue(),
 		eslintPlugin({

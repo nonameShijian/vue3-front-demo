@@ -6,10 +6,16 @@
 2. axios
 3. element-plus
 4. pinia
+5. electron (桌面应用支持)
+6. cordova (移动应用支持)
 
+## Electron 构建命令（Windows）
 
-# Vue 3 + TypeScript + Vite
+- `pnpm run build:electron` - 构建 Vue 应用并打包为 Electron 桌面应用
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Cordova 构建命令（Android）
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+- `pnpm run create:cordova` - 构建 Vue 应用并创建Cordova项目
+- `pnpm run build:cordova` -  构建 Vue 应用并打包为 Android APK
+
+> 注意：运行 Cordova 构建前需要先安装 Android SDK 、 Gradle 以及 cmdline-tools

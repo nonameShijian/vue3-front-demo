@@ -19,6 +19,16 @@ const router = createRouter({
 			component: () => import('../views/RegisterPage.vue'),
 		},
 		{
+			path: '/test-confirm-dialog',
+			name: 'testConfirmDialog',
+			component: () => import('../views/TestConfirmDialog.vue'),
+		},
+		{
+			path: '/test-store',
+			name: 'testStore',
+			component: () => import('../views/TestStore.vue'),
+		},
+		{
 			path: '/:pathMatch(.*)*',
 			name: 'notFound',
 			component: () => import('../views/NotFoundPage.vue'),

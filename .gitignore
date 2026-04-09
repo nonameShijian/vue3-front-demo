@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+release
 *.local
 
 # Editor directories and files
@@ -24,3 +25,8 @@ dist-ssr
 *.sw?
 
 package-lock.json
+
+# Cordova build output
+cordova/platforms
+cordova/plugins
+cordova/www

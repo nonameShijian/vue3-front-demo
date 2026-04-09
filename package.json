@@ -3,37 +3,53 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "electron/main.js",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
+    "build:electron": "pnpm run build && ncp electron dist && electron-packager dist Vue3FrontDemo --platform=win32 --arch=x64 --out=release --overwrite --icon=public/vite.svg",
+    "create:cordova": "pnpm run build && ncp dist cordova/www && cd cordova && powershell -Command \"if (Test-Path platforms/android) { Remove-Item -Recurse -Force platforms/android }\" && cordova platform add android && ncp gradle platforms/android/gradle && ncp gradlew platforms/android",
+    "prepare:cordova": "pnpm run build && ncp dist cordova/www && cd cordova && cordova prepare android",
+    "build:cordova": "pnpm run prepare:cordova && cd cordova/platforms/android && .\\gradlew.bat assembleRelease && ncp app/build/outputs/apk/release/ ../../../release/cordova/",
     "preview": "vite preview",
     "lint": "npx eslint .",
     "prettier": "prettier --write src/**/*.{js,ts,tsx,vue}"
   },
   "dependencies": {
-    "axios": "^1.7.8",
-    "element-plus": "^2.8.8",
-    "pinia": "^2.2.6",
-    "vue": "^3.5.12",
-    "vue-router": "^4.5.0"
+    "axios": "^1.14.3",
+    "element-plus": "^2.13.6",
+    "pinia": "^3.0.2",
+    "vue": "^3.5.32",
+    "vue-router": "^5.0.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/eslint-parser": "^7.25.9",
-    "@eslint/js": "^9.15.0",
-    "@types/node": "^22.10.0",
-    "@vitejs/plugin-vue": "^5.1.4",
-    "eslint": "^9.15.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-vue": "^9.31.0",
-    "globals": "^15.12.0",
-    "prettier": "^3.4.1",
-    "typescript": "~5.6.2",
-    "typescript-eslint": "^8.16.0",
-    "vite": "^5.4.10",
+    "@babel/core": "^7.27.1",
+    "@babel/eslint-parser": "^7.27.1",
+    "@eslint/js": "^9.26.0",
+    "@types/node": "^24.12.2",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "cordova": "^13.0.0",
+    "cordova-android": "^15.0.0",
+    "electron": "^41.2.0",
+    "electron-packager": "^17.1.2",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "eslint-plugin-vue": "^9.33.0",
+    "globals": "^16.0.0",
+    "ncp": "^2.0.0",
+    "prettier": "^3.5.3",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.31.0",
+    "vite": "^8.0.7",
     "vite-plugin-eslint": "^1.8.1",
-    "vue-eslint-parser": "^9.4.3",
-    "vue-tsc": "^2.1.8"
+    "vue-eslint-parser": "^10.1.3",
+    "vue-tsc": "^3.2.6"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron",
+      "electron-winstaller"
+    ]
   }
 }
