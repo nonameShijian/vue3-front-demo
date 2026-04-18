@@ -30,3 +30,7 @@ package-lock.json
 cordova/platforms
 cordova/plugins
 cordova/www
+
+# Capacitor build output
+capacitor/android
+capacitor/ios

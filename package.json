@@ -4,18 +4,24 @@
   "version": "0.0.0",
   "type": "module",
   "main": "electron/main.js",
+  "engines": {
+    "node": ">=22.21.1"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "build:electron": "pnpm run build && ncp electron dist && electron-packager dist Vue3FrontDemo --platform=win32 --arch=x64 --out=release --overwrite --icon=public/vite.svg",
-    "create:cordova": "pnpm run build && ncp dist cordova/www && cd cordova && powershell -Command \"if (Test-Path platforms/android) { Remove-Item -Recurse -Force platforms/android }\" && cordova platform add android && ncp gradle platforms/android/gradle && ncp gradlew platforms/android",
-    "prepare:cordova": "pnpm run build && ncp dist cordova/www && cd cordova && cordova prepare android",
-    "build:cordova": "pnpm run prepare:cordova && cd cordova/platforms/android && .\\gradlew.bat assembleRelease && ncp app/build/outputs/apk/release/ ../../../release/cordova/",
+    "build:capacitor-android": "pnpm run build && npx cap add android && npx cap copy",
+    "sync-capacitor-android": "pnpm run build && npx cap sync",
+    "open-capacitor-android": "npx cap open android",
     "preview": "vite preview",
     "lint": "npx eslint .",
     "prettier": "prettier --write src/**/*.{js,ts,tsx,vue}"
   },
   "dependencies": {
+    "@capacitor/android": "^8.3.1",
+    "@capacitor/cli": "^8.3.1",
+    "@capacitor/core": "^8.3.1",
     "axios": "^1.14.3",
     "element-plus": "^2.13.6",
     "pinia": "^3.0.2",
@@ -28,8 +34,6 @@
     "@eslint/js": "^9.26.0",
     "@types/node": "^24.12.2",
     "@vitejs/plugin-vue": "^6.0.5",
-    "cordova": "^13.0.0",
-    "cordova-android": "^15.0.0",
     "electron": "^41.2.0",
     "electron-packager": "^17.1.2",
     "eslint": "^9.26.0",

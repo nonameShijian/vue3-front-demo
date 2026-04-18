@@ -38,4 +38,24 @@ export default defineConfig({
 			},
 		},
 	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks(id) {
+					if (id.includes('node_modules')) {
+						// 将 element-plus 单独分包
+						if (id.includes('element-plus')) {
+							return 'element-plus';
+						}
+						// 将 vue 生态相关库分包
+						if (id.includes('vue') || id.includes('pinia') || id.includes('vue-router')) {
+							return 'vue-vendor';
+						}
+						// 其他第三方库归为 vendor
+						return 'vendor';
+					}
+				}
+			}
+		},
+	}
 });
