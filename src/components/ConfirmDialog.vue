@@ -158,4 +158,30 @@ const handleClose = () => {
 .dialog-footer .el-button {
 	min-width: 80px;
 }
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+	:deep(.el-dialog) {
+		width: 85% !important;
+		max-width: 320px;
+	}
+}
+
+/* 小屏幕手机 */
+@media (max-width: 480px) {
+	:deep(.el-dialog) {
+		width: 90% !important;
+		max-width: 280px;
+	}
+
+	.dialog-footer {
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.dialog-footer .el-button {
+		width: 100%;
+		margin-left: 0 !important;
+	}
+}
 </style>
