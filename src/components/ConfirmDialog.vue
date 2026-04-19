@@ -165,6 +165,16 @@ const handleClose = () => {
 		width: 85% !important;
 		max-width: 320px;
 	}
+
+	.dialog-footer {
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.dialog-footer .el-button {
+		flex: 1;
+		min-width: auto;
+	}
 }
 
 /* 小屏幕手机 */
@@ -175,13 +185,15 @@ const handleClose = () => {
 	}
 
 	.dialog-footer {
-		flex-direction: column;
+		flex-direction: row;
 		gap: 8px;
 	}
 
 	.dialog-footer .el-button {
-		width: 100%;
-		margin-left: 0 !important;
+		flex: 1;
+		min-width: auto;
+		font-size: 13px;
+		padding: 8px 12px;
 	}
 }
 </style>
