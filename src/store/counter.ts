@@ -11,7 +11,12 @@ export const useCounterStore = defineStore('counter', () => {
 		count.value++;
 	}
 
-	return { count, doubleCount, increment };
+	// 重置方法
+	function reset() {
+		count.value = 0;
+	}
+
+	return { count, doubleCount, increment, reset };
 });
 
 /**
