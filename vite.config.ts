@@ -39,6 +39,7 @@ export default defineConfig({
 		},
 	},
 	build: {
+		target: 'es6', // 编译目标为 ES6
 		rollupOptions: {
 			output: {
 				manualChunks(id) {
@@ -56,6 +57,6 @@ export default defineConfig({
 					}
 				}
 			}
-		},
+		}
 	}
 });

@@ -22,7 +22,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
 	filename: 'code',
-	language: 'typescript'
+	language: 'typescript',
 });
 
 // 获取标签类型
@@ -32,7 +32,7 @@ const tagType = computed<TagProps['type']>(() => {
 		javascript: 'warning',
 		vue: 'success',
 		html: 'success',
-		css: 'danger'
+		css: 'danger',
 	};
 	return typeMap[props.language] || 'info';
 });

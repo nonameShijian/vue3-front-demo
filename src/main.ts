@@ -8,4 +8,5 @@ import 'element-plus/theme-chalk/dark/css-vars.css';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
 import { createPinia } from 'pinia';
 
+// 创建并挂载应用
 createApp(App).use(router).use(ElementPlus, { locale: zhCn }).use(createPinia()).mount('#app');

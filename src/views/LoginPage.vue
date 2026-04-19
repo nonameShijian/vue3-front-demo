@@ -26,13 +26,7 @@
 
 				<el-form ref="formRef" :model="form" :rules="rules" class="login-form">
 					<el-form-item prop="username">
-						<el-input
-							v-model="form.username"
-							placeholder="请输入用户名"
-							:size="inputSize"
-							:prefix-icon="User"
-							clearable
-						/>
+						<el-input v-model="form.username" placeholder="请输入用户名" :size="inputSize" :prefix-icon="User" clearable />
 					</el-form-item>
 
 					<el-form-item prop="password">
@@ -48,13 +42,7 @@
 					</el-form-item>
 
 					<el-form-item>
-						<el-button
-							type="primary"
-							:size="buttonSize"
-							class="login-button"
-							@click="login"
-							:loading="loading"
-						>
+						<el-button type="primary" :size="buttonSize" class="login-button" @click="login" :loading="loading">
 							{{ loading ? '登录中...' : '登 录' }}
 						</el-button>
 					</el-form-item>
@@ -146,7 +134,8 @@ const login = () => {
 }
 
 @keyframes pulse {
-	0%, 100% {
+	0%,
+	100% {
 		transform: scale(1);
 	}
 	50% {

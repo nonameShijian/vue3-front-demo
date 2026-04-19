@@ -104,7 +104,8 @@ const incrementBy = (value: number) => {
 };
 
 // Store 定义代码
-const storeCode = computed(() => `import { defineStore } from 'pinia';
+const storeCode = computed(
+	() => `import { defineStore } from 'pinia';
 import { computed, ref } from 'vue';
 
 export const useCounterStore = defineStore('counter', () => {
@@ -125,7 +126,8 @@ export const useCounterStore = defineStore('counter', () => {
   }
 
   return { count, doubleCount, increment, reset };
-});`);
+});`
+);
 
 // 组件使用代码
 const componentCode = computed(() => {
@@ -148,7 +150,7 @@ const componentCode = computed(() => {
 		'  <div>double: {{ doubleCount }}</div>',
 		'  <button @click="increment">+1</button>',
 		'  <button @click="reset">重置</button>',
-		'</template>'
+		'</template>',
 	].join('\n');
 });
 </script>

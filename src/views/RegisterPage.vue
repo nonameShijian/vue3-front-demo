@@ -27,23 +27,11 @@
 
 				<el-form ref="formRef" :model="form" :rules="rules" class="register-form">
 					<el-form-item prop="username">
-						<el-input
-							v-model="form.username"
-							placeholder="请输入用户名"
-							:size="inputSize"
-							:prefix-icon="User"
-							clearable
-						/>
+						<el-input v-model="form.username" placeholder="请输入用户名" :size="inputSize" :prefix-icon="User" clearable />
 					</el-form-item>
 
 					<el-form-item prop="email">
-						<el-input
-							v-model="form.email"
-							placeholder="请输入邮箱地址"
-							:size="inputSize"
-							:prefix-icon="Message"
-							clearable
-						/>
+						<el-input v-model="form.email" placeholder="请输入邮箱地址" :size="inputSize" :prefix-icon="Message" clearable />
 					</el-form-item>
 
 					<el-form-item prop="password">
@@ -71,13 +59,7 @@
 					</el-form-item>
 
 					<el-form-item>
-						<el-button
-							type="primary"
-							:size="buttonSize"
-							class="register-button"
-							@click="register"
-							:loading="loading"
-						>
+						<el-button type="primary" :size="buttonSize" class="register-button" @click="register" :loading="loading">
 							{{ loading ? '注册中...' : '注 册' }}
 						</el-button>
 					</el-form-item>
@@ -192,7 +174,8 @@ const register = () => {
 }
 
 @keyframes pulse {
-	0%, 100% {
+	0%,
+	100% {
 		transform: scale(1);
 	}
 	50% {

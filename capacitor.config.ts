@@ -19,6 +19,7 @@ const config: CapacitorConfig = {
   },
   server: {
     cleartext: true,
+    errorPath: '/error.html',
   },
 };
 
